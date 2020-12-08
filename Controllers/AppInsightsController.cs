@@ -38,7 +38,12 @@ namespace WebApp.Controllers
             }
             catch (Exception ex)
             {
-                _telemetry.TrackException(ex);
+                _telemetry.TrackException(ex,
+                    new Dictionary<string, string>
+                    {
+                        { "Controller Name", nameof(AppInsightsController) },
+                        { "User", "DemoUser" },
+                    });
             }
             return View();
         }
