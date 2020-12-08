@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using WebAppCore.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using WebApp.Models;
 
-namespace WebAppCore.Data
+namespace WebApp.Data
 {
     public class ProductsContext : DbContext
     {
@@ -15,6 +11,6 @@ namespace WebAppCore.Data
             Database.EnsureCreated();
         }
 
-        public DbSet<WebAppCore.Models.Product> Product { get; set; }
+        public DbSet<Product> Product { get; set; }
     }
 }

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WebAppCore.Data;
-using WebAppCore.Models;
+using WebApp.Models;
+using WebApp.Data;
 
-namespace WebAppCore.Controllers
+namespace WebApp.Controllers
 {
     public class ProductsController : Controller
     {

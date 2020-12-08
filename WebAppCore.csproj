@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>8c34abad-b44c-4879-880d-af697ddad9f1</UserSecretsId>
+    <AssemblyName>WebAppNet5</AssemblyName>
+    <RootNamespace>WebAppNet5</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

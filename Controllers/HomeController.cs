@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using WebAppCore.Models;
+using WebApp.Models;
 
-namespace WebAppCore.Controllers
+namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
