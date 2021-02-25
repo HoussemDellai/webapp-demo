@@ -22,6 +22,7 @@ stages:
     displayName: Build Web App Job
     variables:
       BuildConfiguration: release
+      System.Debug: true
     steps:
     - task: DotNetCoreCLI@2
       displayName: Restore
