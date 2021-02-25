@@ -10,9 +10,43 @@ pool:
   name: jumpbox-vm-build-agent 
   # vmImage: ubuntu-latest
 
-variables:
-  buildConfiguration: 'Release'
+# steps:
+# - script: dotnet build --configuration $(buildConfiguration)
+#   displayName: 'dotnet build $(buildConfiguration)'
 
-steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+stages:
+- stage: Build_Stage
+  displayName: Build Stage
+  jobs:
+  - job: WebApp
+    displayName: Build Web App Job
+    variables:
+      BuildConfiguration: release
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: Restore
+      inputs:
+        command: restore
+        projects: '**/*.csproj'
+
+    - task: DotNetCoreCLI@2
+      displayName: Build
+      inputs:
+        projects: '**/*.csproj'
+        arguments: '--configuration $(BuildConfiguration)'
+
+    - task: DotNetCoreCLI@2
+      displayName: Publish
+      inputs:
+        command: publish
+        publishWebProjects: True
+        arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+        zipAfterPublish: True
+
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Microsoft-Internal-SPN'
+        appType: 'webAppLinux'
+        WebAppName: 'web-app-dev'
+        packageForLinux: '$(build.artifactstagingdirectory)/**/*.zip'
