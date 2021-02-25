@@ -24,6 +24,14 @@ stages:
       BuildConfiguration: release
       System.Debug: true
     steps:
+
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: 5.0
+        installationPath: $(Agent.ToolsDirectory)/dotnet
+
     - task: DotNetCoreCLI@2
       displayName: Restore
       inputs:
