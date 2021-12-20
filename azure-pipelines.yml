@@ -4,7 +4,7 @@ name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd
 variables: 
   MyRunNumber: $(Date:yyyyMMdd)
   dateVar: $[format('{0:ddMMyyyy}', pipeline.startTime)] #format('{0:yyyyMMdd}', pipeline.startTime)
-  date1: $(Year:yyyy).$(Month).$(DayOfMonth)_$(Hours):$(Minutes)
+  date1: "$(Year:yyyy).$(Month).$(DayOfMonth)_$(Hours):$(Minutes)"
 
 
 steps:
