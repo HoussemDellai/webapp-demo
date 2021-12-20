@@ -9,7 +9,7 @@ variables:
   MyRunNumber: $(Date:yyyyMMdd)
   dateVar: $[format('{0:ddMMyyyy}', pipeline.startTime)] #format('{0:yyyyMMdd}', pipeline.startTime)
   date1: "$(Year:yyyy).$(Month).$(DayOfMonth)_$(Hours):$(Minutes)"
-
+  mydate: $(Get-Date -Format yyyyMMddhhmmss)
 
 steps:
 - script: |
@@ -17,3 +17,6 @@ steps:
     echo $(dateVar)
     echo $(date1)
     echo $(Date:yyyyMMdd)
+    
+- powershell: |
+    Write-Host $(mydate)
