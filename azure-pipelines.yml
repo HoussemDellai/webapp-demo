@@ -1,6 +1,6 @@
 # Set MyRunNumber
 variables: 
-  MyRunNumber: '1.0.0-$(Date:yyyyMMdd)
+  MyRunNumber: 1.0.0-$(Date:yyyyMMdd)
 
 
 steps:
